@@ -30,7 +30,7 @@ class Users(Resource):
             # otherwise the userId does not exist
             return {
                 'message': f"'{args['userId']}' user not found."
-            }, 404
+            }, 400
 
     def post(self):
         parser = reqparse.RequestParser()  # initialize
@@ -89,7 +89,7 @@ class Users(Resource):
             # otherwise the userId does not exist
             return {
                 'message': f"'{args['userId']}' user not found."
-            }, 404
+            }, 400
 
     def delete(self):
         parser = reqparse.RequestParser()  # initialize
@@ -111,7 +111,7 @@ class Users(Resource):
             # otherwise we return 404 because userId does not exist
             return {
                 'message': f"'{args['userId']}' user not found."
-            }, 404
+            }, 400
 
                     
 class Locations(Resource):
@@ -134,7 +134,7 @@ class Locations(Resource):
             # if locationId already exists, return 401 unauthorized
             return {
                 'message': f"'{args['locationId']}' already exists."
-            }, 409
+            }, 400
         else:
             # otherwise, we can add the new location record
             # create new dataframe containing new values

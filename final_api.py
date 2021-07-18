@@ -45,7 +45,7 @@ class Users(Resource):
         if args['userId'] in list(data['userId']):
             return {
                 'message': f"'{args['userId']}' already exists."
-            }, 409
+            }, 400
         else:
             # create new dataframe containing new values
             new_data = pd.DataFrame({
